@@ -26,7 +26,7 @@ db.mongoose
 
 app.use(logger("dev"));
 
-require("./routes/student.routes")(app);
+require("./routes/movies.routes")(app);
 
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to glsi movies application." });
