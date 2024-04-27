@@ -29,7 +29,7 @@ app.use(logger("dev"));
 require("./routes/student.routes")(app);
 
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to glsi students application." });
+  res.json({ message: "Welcome to glsi movies application." });
 });
 
 app.listen(PORT, () => {

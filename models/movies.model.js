@@ -1,9 +1,15 @@
+const { movies } = require(".");
+
 module.exports = mongoose => {
   var schema = mongoose.Schema(
     {
-      name: String,
-      course: String,
-      registered: Boolean,
+    id: Number,
+    title: String,
+    release :String,
+    genre: String, 
+    synopsis: String,
+    director: String,
+    actors: [String]
     },
     { timestamps: true }
   );
@@ -14,6 +20,6 @@ module.exports = mongoose => {
     return object;
   });
 
-  const Student = mongoose.model("student", schema);
-  return Student;
+  const movies = mongoose.model("movies", schema);
+  return movies;
 };
