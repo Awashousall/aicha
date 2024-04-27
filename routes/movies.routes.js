@@ -6,7 +6,7 @@ module.exports = app => {
   
     // Routes pour la gestion des films
     router.get("/movies", movies0.findAllMovies);
-    router.post("/movies", movies0.addMovie);
+    router.post("/movies", movies0.createMovie);
     router.put("/movies/:id", movies0.updateMovie);
     router.delete("/movies/:id", movies0.deleteMovie);
   
