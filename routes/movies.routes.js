@@ -5,8 +5,8 @@ module.exports = app => {
   let router = require("express").Router();
   
     // Routes pour la gestion des films
-    router.get("/movies", moviesController.findAllMovies);
-    router.post("/movies", moviesController.addMovie);
-    router.put("/movies/:id", moviesController.updateMovie);
-    router.delete("/movies/:id", moviesController.deleteMovie);
+    router.get("/", moviesController.findAllMovies);
+    router.post("/", moviesController.addMovie);
+    router.put("/:id", moviesController.updateMovie);
+    router.delete("/:id", moviesController.deleteMovie);
   
