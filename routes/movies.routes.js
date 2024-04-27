@@ -1,12 +1,12 @@
 module.exports = app => {
-    app.use("/api/movies", router);
+    app.use("/api/movies0", router);
   };
-  const moviesController = require("../controllers/movies.controller.js");
+  const movies0 = require("../controllers/movies.controller.js");
   let router = require("express").Router();
   
     // Routes pour la gestion des films
-    router.get("/", moviesController.findAllMovies);
-    router.post("/", moviesController.addMovie);
-    router.put("/:id", moviesController.updateMovie);
-    router.delete("/:id", moviesController.deleteMovie);
+    router.get("/movies", movies0.findAllMovies);
+    router.post("/movies", movies0.addMovie);
+    router.put("/movies/:id", movies0.updateMovie);
+    router.delete("/movies/:id", movies0.deleteMovie);
   

@@ -1,5 +1,3 @@
-const { movies } = require(".");
-
 module.exports = mongoose => {
   var schema = mongoose.Schema(
     {

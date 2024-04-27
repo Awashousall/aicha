@@ -10,6 +10,6 @@ db.mongoose = mongoose;
 
 db.url = dbConfig.url;
 
-db.movies = require("./movies.model.js")(mongoose);
+db.movies0 = require("./movies.model.js")(mongoose);
 
 module.exports = db;

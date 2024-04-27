@@ -1,5 +1,5 @@
 const db = require("../models");
-const Movie = db.movies;
+const Movie = db.movies0;
 
 // Récupérer tous les films depuis la base de données.
 exports.findAllMovies = (req, res) => {
