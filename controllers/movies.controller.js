@@ -1,11 +1,12 @@
 const db = require("../models");
 const Movie = db.movies0;
 
+
 // Récupérer tous les films depuis la base de données.
 exports.findAllMovies = (req, res) => {
   Movie.find()
-    .then(movies => {
-      res.status(200).json(movies);
+    .then(data => {
+      res.status(200).json(data);
     })
     .catch(err => {
       res.status(500).json({ message: err.message || "Une erreur s'est produite lors de la récupération des films." });
