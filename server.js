@@ -1,38 +1,42 @@
 const express = require("express");
-
-const app = express();
-
+const bodyParser = require("body-parser");
 const logger = require("morgan");
-
-const PORT = process.env.PORT || 4002;
-
 const db = require("./models");
 
-const bodyParser = require("body-parser");
+const app = express();
+const PORT = process.env.PORT || 4002;
+
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-
-//app.use(bodyParser.urlencoded({ extended: true }));
-
+// Connexion à la base de données MongoDB
 db.mongoose
-  .connect(db.url)
+  .connect(db.url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
-    console.log(`Connected to the database '${db.url}' !`);
+    console.log(`Connecté à la base de données '${db.url}' !`);
   })
   .catch(err => {
-    console.log(`Cannot connect to the database '${db.url}' !`, err);
+    console.error(`Impossible de se connecter à la base de données '${db.url}' !`, err);
     process.exit();
   });
 
+// Middleware de logging
 app.use(logger("dev"));
 
-require("./routes/movies.routes")(app);
+// Routes
+const auteursRoutes = require("./routes/auteurs.routes");
+app.use("/api/auteurs", auteursRoutes);
 
+// Route racine
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to glsi movies application." });
+  res.json({ message: "Bienvenue dans l'application de gestion des auteurs." });
 });
 
+// Démarrage du serveur
 app.listen(PORT, () => {
-  console.log(`Backend express server is running on port ${PORT}.`);
+  console.log(`Le serveur Express écoute sur le port ${PORT}.`);
 });
